@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,412 +8,445 @@
 <title>easy t.online</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
 
 body{
     margin:0;
-    background:#f2f2f2;
-    font-family:Arial,Tahoma,sans-serif;
+    padding:0;
+    font-family:sans-serif;
+    background:#ffffff;
+    overflow:hidden;
+}
+
+/* خلفية */
+.bg-blur{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at center,#ffe5e5 0%,#ffffff 45%,#f5f5f5 100%);
+    background-size:cover;
+    background-position:center;
+    filter:blur(12px);
+    z-index:-2;
+}
+
+/* الدائرة */
+.plinko-circle{
+    position:fixed;
+    width:420px;
+    height:420px;
+    background:radial-gradient(circle,#ff4b4b,#c40000);
+    border-radius:50%;
+    top:15%;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:.16;
+    filter:blur(3px);
+    z-index:-1;
+}
+
+.container{
+    max-width:420px;
+    margin:80px auto;
+    background:rgba(255,255,255,.88);
+    border-radius:18px;
+    padding:22px;
     color:#222;
-}
-
-.app{
-    width:100%;
-    max-width:500px;
-    min-height:100vh;
-    margin:auto;
-    background:#fff;
-}
-
-/* HEADER */
-
-header{
-    padding:18px 15px;
     text-align:center;
-    background:#fff;
-    border-bottom:1px solid #eee;
+    border:1px solid rgba(220,0,0,.18);
+    box-shadow:0 10px 35px rgba(180,0,0,.12);
 }
 
-.logo{
-    width:190px;
-    max-width:80%;
+/* العنوان */
+
+h1{
+    font-size:28px;
+    margin-bottom:6px;
 }
 
-/* CONTENT */
-
-.content{
-    padding:15px;
+p{
+    opacity:.9;
 }
 
-.card{
-    background:#fff;
-    border-radius:16px;
-    border:1px solid #e8e8e8;
-    padding:20px;
-    margin-bottom:14px;
-    box-shadow:0 3px 12px rgba(0,0,0,.05);
-}
+/* المعلومات */
 
-/* TITLE */
-
-.title{
-    text-align:center;
-    font-size:25px;
-    font-weight:bold;
-    color:#e3262e;
-    margin-bottom:8px;
-}
-
-.description{
-    text-align:center;
-    color:#777;
-    font-size:14px;
-    line-height:1.7;
-}
-
-/* BALANCE */
-
-.balance{
-    background:#e3262e;
-    color:white;
-    text-align:center;
-    border-radius:16px;
-    padding:24px 15px;
-    margin-bottom:14px;
-}
-
-.balance small{
-    display:block;
-    font-size:14px;
-    margin-bottom:8px;
-}
-
-.balance strong{
-    display:block;
-    font-size:38px;
-}
-
-.balance span{
-    font-size:17px;
-}
-
-/* STATUS */
-
-.status{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.status-label{
-    color:#777;
-}
-
-.status-value{
-    color:#159447;
-    font-weight:bold;
-}
-
-/* BUTTON */
-
-button{
-    width:100%;
-    border:0;
-    border-radius:13px;
-    padding:16px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.primary{
-    background:#e3262e;
-    color:#fff;
-    box-shadow:0 6px 15px rgba(227,38,46,.2);
-}
-
-.primary:active{
-    transform:scale(.98);
-}
-
-/* FORM */
-
-.form{
-    display:none;
-}
-
-.form.active{
-    display:block;
-}
-
-.form h2{
-    margin:0 0 15px;
-    text-align:center;
-    color:#e3262e;
-}
-
-.warning{
-    background:#fff3f3;
-    color:#777;
-    border-radius:11px;
+.info{
+    background:#fff5f5;
     padding:12px;
-    text-align:center;
-    font-size:13px;
-    line-height:1.7;
-    margin-bottom:16px;
+    border-radius:12px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    border:1px solid #ffd6d6;
 }
 
-label{
-    display:block;
-    font-size:14px;
-    font-weight:bold;
-    margin-bottom:7px;
+.info b{
+    color:#d40000;
 }
 
-input,
-select{
-    width:100%;
-    padding:13px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    margin-bottom:15px;
-    font-size:15px;
-    outline:none;
-}
+/* الزر */
 
-input:focus,
-select:focus{
-    border-color:#e3262e;
-}
-
-.secondary{
-    background:#222;
+.btn-main{
+    background:#e00000;
+    border:none;
+    padding:14px 25px;
+    font-size:18px;
+    border-radius:12px;
     color:#fff;
+    cursor:pointer;
+    width:100%;
+    transition:.3s;
+    box-shadow:0 7px 18px rgba(224,0,0,.2);
 }
 
-/* NOTICE */
-
-.notice{
-    text-align:center;
-    color:#888;
-    font-size:12px;
-    line-height:1.7;
-    padding:10px 15px 25px;
+.btn-main:hover{
+    background:#b90000;
 }
 
-/* FOOTER */
+/* حركة العنوان */
 
-footer{
-    text-align:center;
-    padding:20px;
-    color:#aaa;
-    font-size:12px;
-    border-top:1px solid #eee;
+@keyframes glowMove{
+
+0%{
+    text-shadow:0 0 8px #ff5555,
+                0 0 16px #ff5555;
+    transform:translateX(0);
 }
 
-footer b{
-    color:#e3262e;
+50%{
+    text-shadow:0 0 18px #ff5555,
+                0 0 35px #ff5555;
+    transform:translateX(10px);
 }
+
+100%{
+    text-shadow:0 0 8px #ff5555,
+                0 0 16px #ff5555;
+    transform:translateX(0);
+}
+
+}
+
+.plinko-anim{
+    animation:glowMove 2.5s infinite ease-in-out;
+}
+
+/* حركة السهم */
+
+@keyframes arrowMove{
+
+0%{
+    transform:translateY(0);
+    filter:drop-shadow(0 0 6px #e00000);
+}
+
+50%{
+    transform:translateY(-8px);
+    filter:drop-shadow(0 0 14px #e00000);
+}
+
+100%{
+    transform:translateY(0);
+    filter:drop-shadow(0 0 6px #e00000);
+}
+
+}
+
+.arrow-anim{
+    display:inline-block;
+    animation:arrowMove 1.2s infinite ease-in-out;
+}
+
+/* حركة مبروك */
+
+@keyframes mabrookMove{
+
+0%{
+    transform:translateX(0);
+}
+
+50%{
+    transform:translateX(8px);
+}
+
+100%{
+    transform:translateX(0);
+}
+
+}
+
+.mabrook-anim{
+    animation:mabrookMove 2s infinite ease-in-out;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="app">
-
-<header>
-
-<img
-    class="logo"
-    src="file_00000000a29481f4a3152f77d5b063e.png"
-    alt="easy t.online"
->
-
-</header>
-
-
-<div class="content">
-
-
-<!-- TITLE -->
-
-<div class="card">
-
-<div class="title">
-🎉 ألف مبروك
-</div>
-
-<div class="description">
-أهلًا بك في easy t.online
-<br>
-هذه نسخة تجريبية من الواجهة.
-</div>
-
-</div>
-
-
-<!-- BALANCE -->
-
-<div class="balance">
-
-<small>
-الرصيد التجريبي
-</small>
-
-<strong>
-9,850
-</strong>
-
-<span>
-جنيه
-</span>
-
-</div>
-
-
-<!-- STATUS -->
-
-<div class="card status">
-
-<span class="status-label">
-حالة الحساب
-</span>
-
-<span class="status-value">
-● Demo
-</span>
-
-</div>
-
-
-<!-- MAIN BUTTON -->
-
-<button
-    class="primary"
-    onclick="showForm()"
->
-متابعة
-</button>
-
-
-<!-- FORM -->
-
-<div
-    class="card form"
-    id="form"
->
-
-<h2>
-طلب تجريبي
-</h2>
-
-<div class="warning">
-
-⚠️ هذه الصفحة Demo فقط.
-<br>
-لا توجد أموال حقيقية أو رسوم دفع.
-
-</div>
-
-
-<label>
-الاسم
-</label>
-
-<input
-    type="text"
-    placeholder="اكتب الاسم"
->
-
-
-<label>
-طريقة الاستلام
-</label>
-
-<select>
-
-<option>
-اختر الطريقة
-</option>
-
-<option>
-محفظة إلكترونية
-</option>
-
-<option>
-حساب بنكي
-</option>
-
-</select>
-
-
-<label>
-رقم الحساب
-</label>
-
-<input
-    type="text"
-    placeholder="اكتب رقم الحساب"
->
-
-
-<button
-    class="secondary"
-    onclick="confirmDemo()"
->
-تأكيد تجريبي
-</button>
-
-</div>
-
-
-<div class="notice">
+<h1
+class="plinko-anim"
+style="
+font-size:42px;
+text-align:center;
+margin:20px 0;
+font-weight:900;
+color:#d40000;
+letter-spacing:2px;
+text-shadow:0 0 10px #ff5555,0 0 20px #ff5555;
+">
 
 easy t.online
-<br>
-واجهة Demo لأغراض العرض والتجربة فقط.
 
-</div>
-
-</div>
+</h1>
 
 
-<footer>
+<div class="bg-blur"></div>
 
+<div class="plinko-circle"></div>
+
+
+<div class="container">
+
+<h1
+class="mabrook-anim"
+style="
+font-size:32px;
+margin-bottom:6px;
+font-weight:900;
+color:#d40000;
+text-shadow:0 0 12px #ff9999;
+">
+
+🎉 ألف مبروك 🎉
+
+</h1>
+
+
+<p>
+
+أهلاً بك في
 <b>easy t.online</b>
 <br>
-Demo Interface
 
-</footer>
+هذه واجهة تجريبية فقط
+
+</p>
+
+
+<div class="info">
+
+<span>الرصيد التجريبي</span>
+
+<b>
+٩٬٨٥٠ ج
+</b>
+
+</div>
+
+
+<div class="info">
+
+<span>الحالة</span>
+
+<b>
+Demo
+</b>
+
+</div>
+
+
+<button
+class="btn-main"
+onclick="openModal()">
+
+متابعة
+
+</button>
+
+</div>
+
+
+<!-- Popup -->
+
+<div
+id="modal"
+style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(6px);
+padding:20px;
+z-index:999;
+">
+
+<div
+style="
+max-width:420px;
+margin:auto;
+background:rgba(255,255,255,.96);
+border:1px solid #ffcccc;
+border-radius:20px;
+padding:25px;
+color:#222;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,.2);
+">
+
+<h2
+style="
+font-size:26px;
+margin-bottom:10px;
+color:#d40000;
+">
+
+طلب تجريبي 💰
+
+</h2>
+
+
+<p
+style="
+opacity:.9;
+margin-bottom:20px;
+">
+
+هذه شاشة Demo فقط ولا توجد عملية دفع أو رسوم حقيقية.
+
+</p>
+
+
+<div
+style="
+text-align:right;
+font-size:20px;
+margin-bottom:15px;
+">
+
+<div
+style="
+background:#fff5f5;
+padding:10px;
+border-radius:12px;
+margin-bottom:8px;
+display:flex;
+justify-content:space-between;
+">
+
+<span>الرصيد</span>
+
+<b style="color:#d40000;">
+٩٬٨٥٠ ج
+</b>
+
+</div>
+
+
+<div
+style="
+background:#f7f7f7;
+padding:10px;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+">
+
+<span>الحالة</span>
+
+<b style="color:#159447;">
+Demo
+</b>
+
+</div>
+
+</div>
+
+
+<label
+style="
+display:block;
+margin:15px 0 10px;
+font-size:18px;
+">
+
+إرفاق صورة تجريبية:
+
+</label>
+
+
+<input
+type="file"
+style="
+width:100%;
+padding:10px;
+border-radius:12px;
+border:1px solid #ddd;
+background:#fff;
+color:#000;
+"
+/>
+
+
+<div
+style="
+margin-top:12px;
+font-size:17px;
+color:#d40000;
+text-align:center;
+font-weight:bold;
+">
+
+⬇️
+<span class="arrow-anim">⬆️</span>
+
+ارفع الصورة هنا
+
+</div>
+
+
+<button
+onclick="closeModal()"
+style="
+margin-top:20px;
+background:#e00000;
+border:none;
+padding:14px 20px;
+font-size:18px;
+border-radius:12px;
+color:#fff;
+width:100%;
+cursor:pointer;
+">
+
+إغلاق
+
+</button>
+
+
+</div>
 
 </div>
 
 
 <script>
 
-function showForm(){
+function openModal(){
 
-    const form = document.getElementById("form");
-
-    form.classList.add("active");
-
-    form.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+document.getElementById('modal').style.display='block';
 
 }
 
+function closeModal(){
 
-function confirmDemo(){
-
-    alert("تم تنفيذ العملية التجريبية بنجاح ✅");
+document.getElementById('modal').style.display='none';
 
 }
 
 </script>
+
 
 </body>
 </html>
