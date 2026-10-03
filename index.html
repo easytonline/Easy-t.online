@@ -13,14 +13,14 @@
 
 body{
     margin:0;
+    background:#f2f2f2;
     font-family:Arial,Tahoma,sans-serif;
-    background:#f3f3f3;
     color:#222;
 }
 
-.container{
+.app{
     width:100%;
-    max-width:480px;
+    max-width:500px;
     min-height:100vh;
     margin:auto;
     background:#fff;
@@ -28,196 +28,191 @@ body{
 
 /* HEADER */
 
-.header{
-    background:#fff;
-    padding:18px 15px 12px;
+header{
+    padding:18px 15px;
     text-align:center;
-    border-bottom:3px solid #e3262e;
+    background:#fff;
+    border-bottom:1px solid #eee;
 }
 
 .logo{
     width:190px;
     max-width:80%;
-    height:auto;
 }
 
-/* TOP BOX */
+/* CONTENT */
 
-.top-box{
-    margin:18px 15px 0;
-    padding:22px 15px;
+.content{
+    padding:15px;
+}
+
+.card{
+    background:#fff;
+    border-radius:16px;
+    border:1px solid #e8e8e8;
+    padding:20px;
+    margin-bottom:14px;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+/* TITLE */
+
+.title{
     text-align:center;
-    border-radius:18px;
-    background:linear-gradient(180deg,#fff,#fff4f4);
-    border:1px solid #eee;
-}
-
-.congrats{
-    color:#e3262e;
-    font-size:27px;
+    font-size:25px;
     font-weight:bold;
+    color:#e3262e;
     margin-bottom:8px;
 }
 
-.sub{
+.description{
+    text-align:center;
     color:#777;
     font-size:14px;
+    line-height:1.7;
 }
 
 /* BALANCE */
 
 .balance{
-    margin:15px;
-    padding:22px 15px;
-    border-radius:18px;
     background:#e3262e;
-    color:#fff;
+    color:white;
     text-align:center;
-    box-shadow:0 8px 20px rgba(227,38,46,.18);
+    border-radius:16px;
+    padding:24px 15px;
+    margin-bottom:14px;
 }
 
-.balance-title{
+.balance small{
+    display:block;
     font-size:14px;
-    opacity:.9;
     margin-bottom:8px;
 }
 
-.balance-number{
+.balance strong{
+    display:block;
     font-size:38px;
-    font-weight:bold;
 }
 
-.currency{
+.balance span{
     font-size:17px;
 }
 
 /* STATUS */
 
-.status-box{
-    margin:0 15px;
-    padding:16px;
-    border:1px solid #eee;
-    border-radius:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.status-title{
-    color:#777;
-    font-size:14px;
-}
-
 .status{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.status-label{
+    color:#777;
+}
+
+.status-value{
     color:#159447;
     font-weight:bold;
 }
 
 /* BUTTON */
 
-.main-btn{
-    width:calc(100% - 30px);
-    margin:15px;
-    padding:17px;
+button{
+    width:100%;
     border:0;
-    border-radius:14px;
-    background:#e3262e;
-    color:#fff;
-    font-size:18px;
+    border-radius:13px;
+    padding:16px;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
-    box-shadow:0 7px 16px rgba(227,38,46,.2);
 }
 
-.main-btn:active{
+.primary{
+    background:#e3262e;
+    color:#fff;
+    box-shadow:0 6px 15px rgba(227,38,46,.2);
+}
+
+.primary:active{
     transform:scale(.98);
 }
 
-/* DEMO PANEL */
+/* FORM */
 
-.panel{
+.form{
     display:none;
-    margin:15px;
-    padding:20px;
-    border:1px solid #eee;
-    border-radius:18px;
-    background:#fff;
 }
 
-.panel.show{
+.form.active{
     display:block;
 }
 
-.panel h2{
-    margin:0 0 8px;
+.form h2{
+    margin:0 0 15px;
     text-align:center;
     color:#e3262e;
-    font-size:23px;
 }
 
-.demo-warning{
-    padding:12px;
-    margin:15px 0;
-    border-radius:12px;
-    background:#fff4f4;
+.warning{
+    background:#fff3f3;
     color:#777;
+    border-radius:11px;
+    padding:12px;
+    text-align:center;
     font-size:13px;
     line-height:1.7;
-    text-align:center;
+    margin-bottom:16px;
 }
 
 label{
     display:block;
-    margin-bottom:7px;
     font-size:14px;
     font-weight:bold;
+    margin-bottom:7px;
 }
 
 input,
 select{
     width:100%;
     padding:13px;
-    margin-bottom:15px;
     border:1px solid #ddd;
-    border-radius:11px;
+    border-radius:10px;
+    margin-bottom:15px;
     font-size:15px;
-    background:#fff;
+    outline:none;
 }
 
-.demo-btn{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:12px;
+input:focus,
+select:focus{
+    border-color:#e3262e;
+}
+
+.secondary{
     background:#222;
     color:#fff;
-    font-size:16px;
-    font-weight:bold;
 }
 
 /* NOTICE */
 
 .notice{
-    margin:15px;
-    padding:14px;
-    background:#f7f7f7;
-    border-radius:12px;
     text-align:center;
-    color:#777;
+    color:#888;
     font-size:12px;
     line-height:1.7;
+    padding:10px 15px 25px;
 }
 
 /* FOOTER */
 
-.footer{
+footer{
     text-align:center;
-    padding:25px 10px 35px;
-    color:#999;
+    padding:20px;
+    color:#aaa;
     font-size:12px;
+    border-top:1px solid #eee;
 }
 
-.footer strong{
+footer b{
     color:#e3262e;
 }
 </style>
@@ -225,162 +220,185 @@ select{
 
 <body>
 
-<div class="container">
+<div class="app">
 
-    <!-- LOGO -->
-    <header class="header">
-        <img
-            class="logo"
-            src="file_00000000a29481f4a3152f77d5b063e.png"
-            alt="easy t.online"
-        >
-    </header>
+<header>
 
+<img
+    class="logo"
+    src="file_00000000a29481f4a3152f77d5b063e.png"
+    alt="easy t.online"
+>
 
-    <!-- MAIN -->
-    <main>
-
-        <section class="top-box">
-
-            <div class="congrats">
-                🎉 ألف مبروك 🎉
-            </div>
-
-            <div class="sub">
-                تم الوصول إلى الصفحة التجريبية بنجاح
-            </div>
-
-        </section>
+</header>
 
 
-        <!-- BALANCE -->
-        <section class="balance">
-
-            <div class="balance-title">
-                الرصيد التجريبي
-            </div>
-
-            <div class="balance-number">
-                9,850
-                <span class="currency">جنيه</span>
-            </div>
-
-        </section>
+<div class="content">
 
 
-        <!-- STATUS -->
-        <section class="status-box">
+<!-- TITLE -->
 
-            <span class="status-title">
-                حالة الحساب
-            </span>
+<div class="card">
 
-            <span class="status">
-                ● Demo
-            </span>
+<div class="title">
+🎉 ألف مبروك
+</div>
 
-        </section>
+<div class="description">
+أهلًا بك في easy t.online
+<br>
+هذه نسخة تجريبية من الواجهة.
+</div>
 
-
-        <!-- BUTTON -->
-        <button
-            class="main-btn"
-            onclick="openPanel()"
-        >
-            متابعة
-        </button>
+</div>
 
 
-        <!-- FORM -->
-        <section
-            class="panel"
-            id="panel"
-        >
+<!-- BALANCE -->
 
-            <h2>
-                طلب تجريبي
-            </h2>
+<div class="balance">
 
-            <div class="demo-warning">
-                ⚠️ هذه واجهة تجريبية فقط.
-                لا يوجد رصيد حقيقي ولا يتم تحصيل أي رسوم أو أموال.
-            </div>
+<small>
+الرصيد التجريبي
+</small>
 
+<strong>
+9,850
+</strong>
 
-            <label>
-                الاسم
-            </label>
+<span>
+جنيه
+</span>
 
-            <input
-                type="text"
-                placeholder="اكتب الاسم"
-            >
+</div>
 
 
-            <label>
-                طريقة الاستلام
-            </label>
+<!-- STATUS -->
 
-            <select>
-                <option>اختر طريقة الاستلام</option>
-                <option>محفظة إلكترونية</option>
-                <option>حساب بنكي</option>
-            </select>
+<div class="card status">
 
+<span class="status-label">
+حالة الحساب
+</span>
 
-            <label>
-                رقم الحساب
-            </label>
+<span class="status-value">
+● Demo
+</span>
 
-            <input
-                type="text"
-                placeholder="اكتب رقم الحساب"
-            >
+</div>
 
 
-            <button
-                class="demo-btn"
-                onclick="sendDemo()"
-            >
-                تأكيد تجريبي
-            </button>
+<!-- MAIN BUTTON -->
 
-        </section>
-
-
-        <!-- NOTICE -->
-        <div class="notice">
-            easy t.online
-            <br>
-            نموذج تجريبي لأغراض العرض فقط
-        </div>
-
-    </main>
+<button
+    class="primary"
+    onclick="showForm()"
+>
+متابعة
+</button>
 
 
-    <!-- FOOTER -->
-    <footer class="footer">
+<!-- FORM -->
 
-        <strong>easy t.online</strong>
+<div
+    class="card form"
+    id="form"
+>
 
-        <br>
+<h2>
+طلب تجريبي
+</h2>
 
-        Demo Interface
+<div class="warning">
 
-    </footer>
+⚠️ هذه الصفحة Demo فقط.
+<br>
+لا توجد أموال حقيقية أو رسوم دفع.
+
+</div>
+
+
+<label>
+الاسم
+</label>
+
+<input
+    type="text"
+    placeholder="اكتب الاسم"
+>
+
+
+<label>
+طريقة الاستلام
+</label>
+
+<select>
+
+<option>
+اختر الطريقة
+</option>
+
+<option>
+محفظة إلكترونية
+</option>
+
+<option>
+حساب بنكي
+</option>
+
+</select>
+
+
+<label>
+رقم الحساب
+</label>
+
+<input
+    type="text"
+    placeholder="اكتب رقم الحساب"
+>
+
+
+<button
+    class="secondary"
+    onclick="confirmDemo()"
+>
+تأكيد تجريبي
+</button>
+
+</div>
+
+
+<div class="notice">
+
+easy t.online
+<br>
+واجهة Demo لأغراض العرض والتجربة فقط.
+
+</div>
+
+</div>
+
+
+<footer>
+
+<b>easy t.online</b>
+<br>
+Demo Interface
+
+</footer>
 
 </div>
 
 
 <script>
 
-function openPanel(){
+function showForm(){
 
-    const panel = document.getElementById("panel");
+    const form = document.getElementById("form");
 
-    panel.classList.add("show");
+    form.classList.add("active");
 
-    panel.scrollIntoView({
+    form.scrollIntoView({
         behavior:"smooth",
         block:"start"
     });
@@ -388,11 +406,9 @@ function openPanel(){
 }
 
 
-function sendDemo(){
+function confirmDemo(){
 
-    alert(
-        "تم إرسال الطلب التجريبي بنجاح ✅"
-    );
+    alert("تم تنفيذ العملية التجريبية بنجاح ✅");
 
 }
 
