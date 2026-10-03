@@ -1,189 +1,137 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>easy t.online</title>
-
 <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #ffffff;
+        overflow:hidden;
+    }
 
-body{
-    margin:0;
-    padding:0;
-    font-family:sans-serif;
-    background:#ffffff;
-    overflow:hidden;
+/* خلفية ضبابية */
+.bg-blur {
+    position: fixed;
+    inset: 0;
+    background: url('https://i.imgur.com/1c8ZQkR.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px) brightness(1);
+    z-index: -2;
 }
 
-/* خلفية */
-.bg-blur{
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at center,#ffe5e5 0%,#ffffff 45%,#f5f5f5 100%);
-    background-size:cover;
-    background-position:center;
-    filter:blur(12px);
-    z-index:-2;
+/* دائرة بلينكو كبيرة */
+.plinko-circle {
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, #ff5555, #cc0000);
+    border-radius: 50%;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.15;
+    filter: blur(3px);
+    z-index: -1;
 }
 
-/* الدائرة */
-.plinko-circle{
-    position:fixed;
-    width:420px;
-    height:420px;
-    background:radial-gradient(circle,#ff4b4b,#c40000);
-    border-radius:50%;
-    top:15%;
-    left:50%;
-    transform:translateX(-50%);
-    opacity:.16;
-    filter:blur(3px);
-    z-index:-1;
+.container {
+    max-width: 420px;
+    margin: 80px auto;
+    background: rgba(255,255,255,0.90);
+    border-radius: 18px;
+    padding: 22px;
+    color: #222;
+    text-align: center;
+    border: 1px solid rgba(220,0,0,0.20);
+    backdrop-filter: blur(12px);
 }
 
-.container{
-    max-width:420px;
-    margin:80px auto;
-    background:rgba(255,255,255,.88);
-    border-radius:18px;
-    padding:22px;
-    color:#222;
-    text-align:center;
-    border:1px solid rgba(220,0,0,.18);
-    box-shadow:0 10px 35px rgba(180,0,0,.12);
+h1 { font-size: 28px; margin-bottom: 6px; }
+p { opacity: 0.9; }
+
+.info {
+    background: rgba(220,0,0,0.06);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
 }
 
-/* العنوان */
-
-h1{
-    font-size:28px;
-    margin-bottom:6px;
+.info b {
+    color: #d40000;
 }
 
-p{
-    opacity:.9;
+.btn-main {
+    background: #e00000;
+    border: none;
+    padding: 14px 25px;
+    font-size: 18px;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+.btn-main:hover{ background:#c00000; }
+
+@keyframes glowMove {
+    0% {
+        text-shadow:0 0 8px #ff5555, 0 0 16px #ff5555;
+        transform:translateX(0);
+    }
+    50% {
+        text-shadow:0 0 18px #ff5555, 0 0 35px #ff5555;
+        transform:translateX(10px);
+    }
+    100% {
+        text-shadow:0 0 8px #ff5555, 0 0 16px #ff5555;
+        transform:translateX(0);
+    }
 }
 
-/* المعلومات */
-
-.info{
-    background:#fff5f5;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:12px;
-    display:flex;
-    justify-content:space-between;
-    font-size:20px;
-    border:1px solid #ffd6d6;
+.plinko-anim {
+    animation: glowMove 2.5s infinite ease-in-out;
 }
 
-.info b{
-    color:#d40000;
+@keyframes arrowMove {
+    0% {
+        transform:translateY(0);
+        filter:drop-shadow(0 0 6px #ff3333);
+    }
+    50% {
+        transform:translateY(-8px);
+        filter:drop-shadow(0 0 14px #ff3333);
+    }
+    100% {
+        transform:translateY(0);
+        filter:drop-shadow(0 0 6px #ff3333);
+    }
 }
 
-/* الزر */
-
-.btn-main{
-    background:#e00000;
-    border:none;
-    padding:14px 25px;
-    font-size:18px;
-    border-radius:12px;
-    color:#fff;
-    cursor:pointer;
-    width:100%;
-    transition:.3s;
-    box-shadow:0 7px 18px rgba(224,0,0,.2);
-}
-
-.btn-main:hover{
-    background:#b90000;
-}
-
-/* حركة العنوان */
-
-@keyframes glowMove{
-
-0%{
-    text-shadow:0 0 8px #ff5555,
-                0 0 16px #ff5555;
-    transform:translateX(0);
-}
-
-50%{
-    text-shadow:0 0 18px #ff5555,
-                0 0 35px #ff5555;
-    transform:translateX(10px);
-}
-
-100%{
-    text-shadow:0 0 8px #ff5555,
-                0 0 16px #ff5555;
-    transform:translateX(0);
-}
-
-}
-
-.plinko-anim{
-    animation:glowMove 2.5s infinite ease-in-out;
-}
-
-/* حركة السهم */
-
-@keyframes arrowMove{
-
-0%{
-    transform:translateY(0);
-    filter:drop-shadow(0 0 6px #e00000);
-}
-
-50%{
-    transform:translateY(-8px);
-    filter:drop-shadow(0 0 14px #e00000);
-}
-
-100%{
-    transform:translateY(0);
-    filter:drop-shadow(0 0 6px #e00000);
-}
-
-}
-
-.arrow-anim{
+.arrow-anim {
     display:inline-block;
-    animation:arrowMove 1.2s infinite ease-in-out;
+    animation: arrowMove 1.2s infinite ease-in-out;
 }
 
-/* حركة مبروك */
-
-@keyframes mabrookMove{
-
-0%{
-    transform:translateX(0);
+@keyframes mabrookMove {
+    0%{transform:translateX(0);}
+    50%{transform:translateX(8px);}
+    100%{transform:translateX(0);}
 }
 
-50%{
-    transform:translateX(8px);
-}
-
-100%{
-    transform:translateX(0);
-}
-
-}
-
-.mabrook-anim{
+.mabrook-anim {
     animation:mabrookMove 2s infinite ease-in-out;
 }
 
 </style>
 
 </head>
-
-
 <body>
 
 <h1
@@ -195,79 +143,55 @@ margin:20px 0;
 font-weight:900;
 color:#d40000;
 letter-spacing:2px;
-text-shadow:0 0 10px #ff5555,0 0 20px #ff5555;
+text-shadow:0 0 10px #ff5555, 0 0 20px #ff5555;
 ">
-
 easy t.online
-
 </h1>
-
 
 <div class="bg-blur"></div>
 
 <div class="plinko-circle"></div>
 
-
 <div class="container">
 
-<h1
-class="mabrook-anim"
-style="
-font-size:32px;
-margin-bottom:6px;
-font-weight:900;
-color:#d40000;
-text-shadow:0 0 12px #ff9999;
-">
+    <h1
+    class="mabrook-anim"
+    style="
+    font-size:32px;
+    margin-bottom:6px;
+    font-weight:900;
+    color:#d40000;
+    text-shadow:0 0 12px #ff9999;
+    ">
+    🎉 ألف مبروك 🎉
+    </h1>
 
-🎉 ألف مبروك 🎉
+    <p>
+    مبروك كسبت مع <b>easy t.online</b> والمكسب جاهز للسحب بمجرد دفع الرسوم
+    </p>
 
-</h1>
+    <div class="info">
+        <span>المكسب</span>
+        <b>٩٬٨٥٠ ج</b>
+    </div>
 
+    <div class="info">
+        <span>الرسوم</span>
+        <b>٩٨٤ ج</b>
+    </div>
 
-<p>
+    <div class="info">
+        <span>الحالة</span>
+        <b>جاهز للسحب</b>
+    </div>
 
-أهلاً بك في
-<b>easy t.online</b>
-<br>
-
-هذه واجهة تجريبية فقط
-
-</p>
-
-
-<div class="info">
-
-<span>الرصيد التجريبي</span>
-
-<b>
-٩٬٨٥٠ ج
-</b>
-
-</div>
-
-
-<div class="info">
-
-<span>الحالة</span>
-
-<b>
-Demo
-</b>
+    <button
+    class="btn-main"
+    onclick="openModal()">
+    سحب المكسب
+    </button>
 
 </div>
-
-
-<button
-class="btn-main"
-onclick="openModal()">
-
-متابعة
-
-</button>
-
-</div>
-
 
 <!-- Popup -->
 
@@ -287,13 +211,13 @@ z-index:999;
 style="
 max-width:420px;
 margin:auto;
-background:rgba(255,255,255,.96);
-border:1px solid #ffcccc;
+background:rgba(255,255,255,0.95);
+border:1px solid rgba(220,0,0,0.25);
 border-radius:20px;
 padding:25px;
 color:#222;
 text-align:center;
-box-shadow:0 10px 40px rgba(0,0,0,.2);
+backdrop-filter:blur(12px);
 ">
 
 <h2
@@ -302,22 +226,16 @@ font-size:26px;
 margin-bottom:10px;
 color:#d40000;
 ">
-
-طلب تجريبي 💰
-
+سحب الأرباح 💰
 </h2>
-
 
 <p
 style="
-opacity:.9;
+opacity:0.9;
 margin-bottom:20px;
 ">
-
-هذه شاشة Demo فقط ولا توجد عملية دفع أو رسوم حقيقية.
-
+برجاء سداد الرسوم ليتم تحويل المكسب على محفظتك
 </p>
-
 
 <div
 style="
@@ -328,7 +246,7 @@ margin-bottom:15px;
 
 <div
 style="
-background:#fff5f5;
+background:rgba(220,0,0,0.06);
 padding:10px;
 border-radius:12px;
 margin-bottom:8px;
@@ -336,7 +254,7 @@ display:flex;
 justify-content:space-between;
 ">
 
-<span>الرصيد</span>
+<span>المكسب</span>
 
 <b style="color:#d40000;">
 ٩٬٨٥٠ ج
@@ -344,68 +262,24 @@ justify-content:space-between;
 
 </div>
 
-
 <div
 style="
-background:#f7f7f7;
+background:rgba(220,0,0,0.06);
 padding:10px;
 border-radius:12px;
 display:flex;
 justify-content:space-between;
 ">
 
-<span>الحالة</span>
+<span>الرسوم</span>
 
-<b style="color:#159447;">
-Demo
+<b style="color:#d40000;">
+٩٨٤ ج
 </b>
 
 </div>
 
 </div>
-
-
-<label
-style="
-display:block;
-margin:15px 0 10px;
-font-size:18px;
-">
-
-إرفاق صورة تجريبية:
-
-</label>
-
-
-<input
-type="file"
-style="
-width:100%;
-padding:10px;
-border-radius:12px;
-border:1px solid #ddd;
-background:#fff;
-color:#000;
-"
-/>
-
-
-<div
-style="
-margin-top:12px;
-font-size:17px;
-color:#d40000;
-text-align:center;
-font-weight:bold;
-">
-
-⬇️
-<span class="arrow-anim">⬆️</span>
-
-ارفع الصورة هنا
-
-</div>
-
 
 <button
 onclick="closeModal()"
@@ -418,35 +292,58 @@ font-size:18px;
 border-radius:12px;
 color:#fff;
 width:100%;
-cursor:pointer;
-">
-
-إغلاق
-
+cursor:pointer;">
+تمام
 </button>
 
+<label
+style="
+display:block;
+margin:15px 0 10px;
+font-size:18px;">
+ارفاق صورة:
+</label>
+
+<input
+type="file"
+style="
+width:100%;
+padding:10px;
+border-radius:12px;
+border:none;
+background:#fff;
+color:#000;
+" />
+
+<div
+class="upload-note"
+style="
+margin-top:12px;
+font-size:18px;
+color:#d40000;
+text-align:center;
+font-weight:bold;
+">
+
+⬇️ <span class="arrow-anim">⬆️</span>
+ارفع الاسكرين هنا او تواصل مع استاذه ريهام ع الماسنجر
 
 </div>
 
 </div>
-
+</div>
 
 <script>
 
 function openModal(){
-
-document.getElementById('modal').style.display='block';
-
+    document.getElementById('modal').style.display='block';
 }
 
 function closeModal(){
-
-document.getElementById('modal').style.display='none';
-
+    document.getElementById('modal').style.display='none';
 }
 
 </script>
-
 
 </body>
 </html>
