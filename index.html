@@ -1,70 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Easy t.Online — Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>easy t.online</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:linear-gradient(135deg,#071b4a,#0b56b0);color:#fff;min-height:100vh}
-.wrap{max-width:520px;margin:auto;padding:18px}
-.card{background:rgba(255,255,255,.97);color:#17213a;border-radius:24px;padding:22px;box-shadow:0 18px 50px rgba(0,0,0,.28);margin-top:18px}
-.brand{text-align:center;font-size:30px;font-weight:900;letter-spacing:.3px;margin:8px 0 4px}
-.demo{text-align:center;color:#d33;font-size:12px;font-weight:700;margin-bottom:18px}
-.hero{background:linear-gradient(135deg,#125bc5,#19a8ff);border-radius:20px;padding:22px;text-align:center}
-.hero h1{margin:0 0 8px;font-size:25px}.hero p{margin:0;opacity:.95}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.box{background:#f4f7fb;border-radius:16px;padding:14px;text-align:center}.label{font-size:12px;color:#6c7588}.value{font-size:20px;font-weight:800;margin-top:5px}
-button{width:100%;border:0;border-radius:15px;padding:15px;font-size:17px;font-weight:800;cursor:pointer;background:#0b63d1;color:#fff;margin-top:16px}
-button.secondary{background:#eef3f9;color:#17477f}
-.notice{font-size:12px;line-height:1.7;background:#fff7df;border:1px solid #f0d37a;border-radius:14px;padding:12px;margin-top:15px;color:#5f4a12}
-.hidden{display:none}.footer{text-align:center;font-size:11px;opacity:.7;margin:18px 0}
-input{width:100%;padding:13px;border:1px solid #d8deea;border-radius:12px;margin-top:8px;font-size:15px}
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#f3f3f3;
+    color:#222;
+}
+
+.container{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    margin:auto;
+    background:#fff;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:18px 15px 12px;
+    text-align:center;
+    border-bottom:3px solid #e3262e;
+}
+
+.logo{
+    width:190px;
+    max-width:80%;
+    height:auto;
+}
+
+/* TOP BOX */
+
+.top-box{
+    margin:18px 15px 0;
+    padding:22px 15px;
+    text-align:center;
+    border-radius:18px;
+    background:linear-gradient(180deg,#fff,#fff4f4);
+    border:1px solid #eee;
+}
+
+.congrats{
+    color:#e3262e;
+    font-size:27px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.sub{
+    color:#777;
+    font-size:14px;
+}
+
+/* BALANCE */
+
+.balance{
+    margin:15px;
+    padding:22px 15px;
+    border-radius:18px;
+    background:#e3262e;
+    color:#fff;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(227,38,46,.18);
+}
+
+.balance-title{
+    font-size:14px;
+    opacity:.9;
+    margin-bottom:8px;
+}
+
+.balance-number{
+    font-size:38px;
+    font-weight:bold;
+}
+
+.currency{
+    font-size:17px;
+}
+
+/* STATUS */
+
+.status-box{
+    margin:0 15px;
+    padding:16px;
+    border:1px solid #eee;
+    border-radius:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.status-title{
+    color:#777;
+    font-size:14px;
+}
+
+.status{
+    color:#159447;
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+.main-btn{
+    width:calc(100% - 30px);
+    margin:15px;
+    padding:17px;
+    border:0;
+    border-radius:14px;
+    background:#e3262e;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 7px 16px rgba(227,38,46,.2);
+}
+
+.main-btn:active{
+    transform:scale(.98);
+}
+
+/* DEMO PANEL */
+
+.panel{
+    display:none;
+    margin:15px;
+    padding:20px;
+    border:1px solid #eee;
+    border-radius:18px;
+    background:#fff;
+}
+
+.panel.show{
+    display:block;
+}
+
+.panel h2{
+    margin:0 0 8px;
+    text-align:center;
+    color:#e3262e;
+    font-size:23px;
+}
+
+.demo-warning{
+    padding:12px;
+    margin:15px 0;
+    border-radius:12px;
+    background:#fff4f4;
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+    text-align:center;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:11px;
+    font-size:15px;
+    background:#fff;
+}
+
+.demo-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:12px;
+    background:#222;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+}
+
+/* NOTICE */
+
+.notice{
+    margin:15px;
+    padding:14px;
+    background:#f7f7f7;
+    border-radius:12px;
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:25px 10px 35px;
+    color:#999;
+    font-size:12px;
+}
+
+.footer strong{
+    color:#e3262e;
+}
 </style>
 </head>
+
 <body>
-<div class="wrap">
-  <div class="brand">Easy t.Online</div>
-  <div class="demo">DEMO / نموذج تجريبي</div>
 
-  <section class="card">
-    <div class="hero">
-      <h1>مرحبًا بك 👋</h1>
-      <p>واجهة تجريبية مستوحاة من فكرة الموقع الذي أرسلته</p>
-    </div>
+<div class="container">
 
-    <div class="grid">
-      <div class="box"><div class="label">الرصيد التجريبي</div><div class="value">9,850</div></div>
-      <div class="box"><div class="label">الحالة</div><div class="value">Demo</div></div>
-    </div>
+    <!-- LOGO -->
+    <header class="header">
+        <img
+            class="logo"
+            src="file_00000000a29481f4a3152f77d5b063e.png"
+            alt="easy t.online"
+        >
+    </header>
 
-    <button onclick="showPanel()">متابعة</button>
 
-    <div id="panel" class="hidden">
-      <div class="notice">
-        هذه نسخة تجريبية فقط. الأرقام والبيانات المعروضة غير حقيقية ولا تمثل أرباحًا أو تحويلات مالية فعلية.
-      </div>
+    <!-- MAIN -->
+    <main>
 
-      <label style="display:block;margin-top:16px;font-weight:700">الاسم التجريبي</label>
-      <input placeholder="اكتب اسمًا للتجربة">
+        <section class="top-box">
 
-      <label style="display:block;margin-top:14px;font-weight:700">ملاحظة</label>
-      <input placeholder="اكتب ملاحظتك">
+            <div class="congrats">
+                🎉 ألف مبروك 🎉
+            </div>
 
-      <button class="secondary" onclick="demoAction()">إرسال تجريبي</button>
-    </div>
-  </section>
+            <div class="sub">
+                تم الوصول إلى الصفحة التجريبية بنجاح
+            </div>
 
-  <div class="footer">Easy t.Online • Demo Interface</div>
+        </section>
+
+
+        <!-- BALANCE -->
+        <section class="balance">
+
+            <div class="balance-title">
+                الرصيد التجريبي
+            </div>
+
+            <div class="balance-number">
+                9,850
+                <span class="currency">جنيه</span>
+            </div>
+
+        </section>
+
+
+        <!-- STATUS -->
+        <section class="status-box">
+
+            <span class="status-title">
+                حالة الحساب
+            </span>
+
+            <span class="status">
+                ● Demo
+            </span>
+
+        </section>
+
+
+        <!-- BUTTON -->
+        <button
+            class="main-btn"
+            onclick="openPanel()"
+        >
+            متابعة
+        </button>
+
+
+        <!-- FORM -->
+        <section
+            class="panel"
+            id="panel"
+        >
+
+            <h2>
+                طلب تجريبي
+            </h2>
+
+            <div class="demo-warning">
+                ⚠️ هذه واجهة تجريبية فقط.
+                لا يوجد رصيد حقيقي ولا يتم تحصيل أي رسوم أو أموال.
+            </div>
+
+
+            <label>
+                الاسم
+            </label>
+
+            <input
+                type="text"
+                placeholder="اكتب الاسم"
+            >
+
+
+            <label>
+                طريقة الاستلام
+            </label>
+
+            <select>
+                <option>اختر طريقة الاستلام</option>
+                <option>محفظة إلكترونية</option>
+                <option>حساب بنكي</option>
+            </select>
+
+
+            <label>
+                رقم الحساب
+            </label>
+
+            <input
+                type="text"
+                placeholder="اكتب رقم الحساب"
+            >
+
+
+            <button
+                class="demo-btn"
+                onclick="sendDemo()"
+            >
+                تأكيد تجريبي
+            </button>
+
+        </section>
+
+
+        <!-- NOTICE -->
+        <div class="notice">
+            easy t.online
+            <br>
+            نموذج تجريبي لأغراض العرض فقط
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <strong>easy t.online</strong>
+
+        <br>
+
+        Demo Interface
+
+    </footer>
+
 </div>
 
+
 <script>
-function showPanel(){
-  document.getElementById('panel').classList.remove('hidden');
-  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+
+function openPanel(){
+
+    const panel = document.getElementById("panel");
+
+    panel.classList.add("show");
+
+    panel.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
 }
-function demoAction(){
-  alert('تم تنفيذ العملية التجريبية فقط — لا توجد معاملة مالية حقيقية.');
+
+
+function sendDemo(){
+
+    alert(
+        "تم إرسال الطلب التجريبي بنجاح ✅"
+    );
+
 }
+
 </script>
+
 </body>
 </html>
